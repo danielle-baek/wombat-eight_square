@@ -3,8 +3,10 @@ const config = require('./knexfile')[environment]
 const connection = require('knex')(config)
 
 module.exports = {
-  getQuestion: getQuestion,
-  getQuestions: getQuestions
+  getQuestion,
+  getQuestions,
+  addQuestion,
+  addAnswer
 }
 
 function getQuestions (db = connection) {
@@ -13,4 +15,13 @@ function getQuestions (db = connection) {
 
 function getQuestion (id, db = connection) {
   return db('questions').where('id', id).first()
+}
+
+function addQuestion (question, newAnswer, db = connection) {
+  return db('questions').insert({question: question})
+    .then()
+}
+
+function addAnswer (questionID, answer, db = connection) {
+  return db('answers').insert({q_id: questionID, answer: answer})
 }
