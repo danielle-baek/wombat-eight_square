@@ -18,7 +18,7 @@ function getQuestion (id, db = connection) {
 
 function addQuestion (question, newAnswer, db = connection) {
   return db('questions').insert({question: question})
-    .then(db.insert(newAnswer).into('answers'))
+    .then(() => db('answers').insert(newAnswer))
 }
 
 // function addAnswer (questionID, answer, db = connection) {
@@ -27,4 +27,9 @@ function addQuestion (question, newAnswer, db = connection) {
 
 // function getAnswers (q_id, db = connection) {
 //   return db('answers').where('q_id', q_id).select()
+// }
+
+// function getId (db = connection) {
+//   for (x = 0; x < 8; x++)
+
 // }
