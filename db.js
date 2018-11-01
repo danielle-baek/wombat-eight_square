@@ -6,7 +6,8 @@ module.exports = {
   getQuestion,
   getQuestions,
   addQuestion,
-  addAnswer
+  addAnswer,
+  getAnswers
 }
 
 function getQuestions (db = connection) {
@@ -24,4 +25,8 @@ function addQuestion (question, newAnswer, db = connection) {
 
 function addAnswer (questionID, answer, db = connection) {
   return db('answers').insert({q_id: questionID, answer: answer})
+}
+
+function getAnswers (q_id, db = connection) {
+  return db('answers').where('q_id', q_id).select()
 }

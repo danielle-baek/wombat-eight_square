@@ -44,7 +44,9 @@ router.post('/edit/:id', (req, res) => {
 })
 
 router.get('/play/:id', (req, res) => {
-
+  const id = Number(req.params.id)
+  db.getQuestion(id)
+  db.getAnswers(id)
 })
 
 router.post('/play/:id', (req, res) => {
