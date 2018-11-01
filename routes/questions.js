@@ -19,23 +19,36 @@ router.get('/create', (req, res) => {
 })
 
 router.post('/create', (req, res) => {
-  
+  const question = req.body.q
+  console.log(question)
+  const newAnswer = [
+    {answer: req.body.a1},
+    {answer: req.body.a2},
+    {answer: req.body.a3},
+    {answer: req.body.a4},
+    {answer: req.body.a5},
+    {answer: req.body.a6},
+    {answer: req.body.a7},
+    {answer: req.body.a8}
+  ]
+  db.addQuestion(question, newAnswer)
+    .then(() => {console.log(newAnswer)})
 })
 
 router.get('/edit/:id', (req, res) => {
-  
+
 })
 
 router.post('/edit/:id', (req, res) => {
-  
+
 })
 
 router.get('/play/:id', (req, res) => {
-  
+
 })
 
 router.post('/play/:id', (req, res) => {
-  
+
 })
 
 module.exports = router
