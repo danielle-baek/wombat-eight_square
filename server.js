@@ -1,7 +1,7 @@
 const express = require('express')
 const hbs = require('express-handlebars')
 
-const userRoutes = require('./routes/users')
+const qRoutes = require('./routes/questions')
 
 const server = express()
 
@@ -10,9 +10,10 @@ const server = express()
 server.engine('hbs', hbs({extname: 'hbs'}))
 server.set('view engine', 'hbs')
 server.use(express.urlencoded({extended: true}))
+server.use(express.static('public'))
 
 // Routes
 
-server.use('/', userRoutes)
+server.use('/', qRoutes)
 
 module.exports = server
