@@ -16,6 +16,6 @@ function getQuestion (id, db = connection) {
   return db('questions').where('id', id).first()
 }
 
-function getAnswers (q_id, db = connection) {
-  return db('answers').where('q_id', q_id).select()
+function getAnswers (questionId, db = connection) {
+  return db('answers').where('q_id', questionId).select()
 }

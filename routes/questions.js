@@ -19,25 +19,35 @@ router.get('/create', (req, res) => {
 })
 
 router.post('/create', (req, res) => {
-  
+
 })
 
 router.get('/edit/:id', (req, res) => {
-  
+
 })
 
 router.post('/edit/:id', (req, res) => {
-  
+
 })
 
 router.get('/play/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getQuestion(id)
-  db.getAnswers(id)
+    .select('question')
+    .then((question) => {
+      db.getAnswers(id)
+        .then((answers) => {
+          const randomNumber = Math.floor(Math.random() * answers.length)
+          let qna = question
+          qna.answer = answers[randomNumber].answer
+          console.log(qna)
+          res.render('play', qna)
+        })
+    })
 })
 
 router.post('/play/:id', (req, res) => {
-  
+
 })
 
 module.exports = router
