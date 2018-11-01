@@ -40,7 +40,6 @@ router.get('/play/:id', (req, res) => {
           const randomNumber = Math.floor(Math.random() * answers.length)
           let qna = question
           qna.answer = answers[randomNumber].answer
-          console.log(qna)
           res.render('play', qna)
         })
     })
