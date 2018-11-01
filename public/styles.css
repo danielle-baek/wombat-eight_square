@@ -1,3 +1,9 @@
 body{
   margin: 20px;
 }
+
+.play{
+  font-size: 2em;
+  text-align: center;
+  color: blue;
+}
