@@ -27,6 +27,6 @@ function addAnswer (questionID, answer, db = connection) {
   return db('answers').insert({q_id: questionID, answer: answer})
 }
 
-function getAnswers (q_id, db = connection) {
-  return db('answers').where('q_id', q_id).select()
+function getAnswers (questionID, db = connection) {
+  return db('answers').where('q_id', questionID).select()
 }
