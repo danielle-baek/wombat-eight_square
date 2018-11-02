@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/create', (req, res) => {
-  res.render('./partials/create')
+  res.render('create')
 })
 
 router.post('/create', (req, res) => {
@@ -28,7 +28,6 @@ router.post('/create', (req, res) => {
         .then((questions) => {
           qId = questions[questions.length - 1].id
           console.log(qId)
-
           const newAnswer = [
             {answer: req.body.a1, q_id: qId},
             {answer: req.body.a2, q_id: qId},
@@ -39,15 +38,25 @@ router.post('/create', (req, res) => {
             {answer: req.body.a7, q_id: qId},
             {answer: req.body.a8, q_id: qId}
           ]
-          console.log(newAnswer)
-          db.addAnswers(newAnswer)
-            .then(console.log)
+          let notEmpty = []
+          for (let item of newAnswer) {
+            if (item.answer !== '') {
+              notEmpty.push(item)
+            }
+          }
+          console.log(notEmpty)
+          db.addAnswers(notEmpty)
+            .then(() => res.redirect('/play/' + qId))
         })
     })
 })
 
 router.get('/edit/:id', (req, res) => {
-
+  const qId = req.params.id
+  db.getGame(qId)
+    .then(game => {
+      res.render('edit', {game})
+    })
 })
 
 router.post('/edit/:id', (req, res) => {

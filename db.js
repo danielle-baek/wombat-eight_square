@@ -6,7 +6,9 @@ module.exports = {
   getQuestion,
   getQuestions,
   addQuestion,
-  addAnswers
+  addAnswers,
+  getAnswers,
+  getGame
 }
 
 function getQuestions (db = connection) {
@@ -27,4 +29,10 @@ function addAnswers (answer, db = connection) {
 
 function getAnswers (questionID, db = connection) {
   return db('answers').where('q_id', questionID).select()
+}
+
+function getGame (questionID, db = connection) {
+  return db('questions')
+    .where('questions.id', questionID)
+    .join('answers', 'questions.id', '=', 'answers.q_id')
 }
