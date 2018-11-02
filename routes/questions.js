@@ -41,7 +41,7 @@ router.post('/create', (req, res) => {
           ]
           console.log(newAnswer)
           db.addAnswers(newAnswer)
-            .then(() => res.redirect('/'))
+            .then(console.log)
         })
     })
 })
