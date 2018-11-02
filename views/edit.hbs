@@ -1,19 +1,9 @@
     <h2>Edit the questions and answers!</h2>
     <form method="POST" action="/create" >
-    {{#each game}}
       <p>Question: <input type="text" name="q" value="{{question}}"></p> 
-    {{/each}}
     {{#each game}}
       <p>Answer: <input type="text" name="a" value="{{answer}}"></p>
     {{/each}}
 
-    {{!-- <p>Answer 1: <input type="text" name="a1" placeholder="Enter your answer here"></p>
-    <p>Answer 2: <input type="text" name="a2" placeholder="Enter your answer here"></p>
-    <p>Answer 3: <input type="text" name="a3" placeholder="Enter your answer here"></p>
-    <p>Answer 4: <input type="text" name="a4" placeholder="Enter your answer here"></p>
-    <p>Answer 5: <input type="text" name="a5" placeholder="Enter your answer here"></p>
-    <p>Answer 6: <input type="text" name="a6" placeholder="Enter your answer here"></p>
-    <p>Answer 7: <input type="text" name="a7" placeholder="Enter your answer here"></p>
-    <p>Answer 8: <input type="text" name="a8" placeholder="Enter your answer here"></p> --}}
     <button type="submit" value="Create Game">Edit Game</button>
     </form>
