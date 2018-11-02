@@ -1,6 +1,7 @@
 body {
   margin:0px;
   padding: 0px;
+  text-align: center;
   background-color: #0F2027;
   /* background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
   /* background: linear-gradient(to right, #2c3e50, #bdc3c7); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ */
@@ -13,6 +14,12 @@ header{
   background:#0F2027;
   color: white;
   text-align: center;
+}
+
+img{
+  height: 130px;
+  width: 170px;
+  color: rgb(90, 46, 46)
 }
 
 .play {
@@ -28,6 +35,8 @@ button {
   background-color: #4e54c8;
   color: rgb(241, 115, 178);
   width: 60%;
+  height: 50px;
+  font-size: 15px;
 }
 
 .answer {
@@ -35,15 +44,22 @@ button {
 }
 
 .create {
+  text-align: center;
   color: #FF0080;
 
 }
-
+.create h2{
+  margin-bottom: 50px;
+}
 .create p{
   font-size: 20px;
 }
 
 .create input{
+  margin-left: 30px;
   color: black;
 }
 
+button:hover{
+  color:#FF0080; 
+}
