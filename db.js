@@ -5,7 +5,8 @@ const connection = require('knex')(config)
 module.exports = {
   getQuestion,
   getQuestions,
-  addQuestion
+  addQuestion,
+  addAnswers
 }
 
 function getQuestions (db = connection) {
@@ -18,13 +19,17 @@ function getQuestion (id, db = connection) {
 
 function addQuestion (question, newAnswer, db = connection) {
   return db('questions').insert({question: question})
-    .then(db.insert(newAnswer).into('answers'))
 }
 
-// function addAnswer (questionID, answer, db = connection) {
-//   return db('answers').insert({q_id: questionID, answer: answer})
-// }
+function addAnswers (answer, db = connection) {
+  return db('answers').insert(answer)
+}
 
 // function getAnswers (q_id, db = connection) {
 //   return db('answers').where('q_id', q_id).select()
+// }
+
+// function getId (db = connection) {
+//   for (x = 0; x < 8; x++)
+
 // }
