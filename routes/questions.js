@@ -52,7 +52,11 @@ router.post('/create', (req, res) => {
 })
 
 router.get('/edit/:id', (req, res) => {
-
+  const qId = req.params.id
+  db.getGame(qId)
+    .then(game => {
+      res.render('edit', {game})
+    })
 })
 
 router.post('/edit/:id', (req, res) => {
