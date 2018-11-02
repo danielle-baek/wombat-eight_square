@@ -27,6 +27,7 @@ router.post('/create', (req, res) => {
         .select()
         .then((questions) => {
           qId = questions[questions.length - 1].id
+          console.log(qId)
           const newAnswer = [
             {answer: req.body.a1, q_id: qId},
             {answer: req.body.a2, q_id: qId},
@@ -37,7 +38,14 @@ router.post('/create', (req, res) => {
             {answer: req.body.a7, q_id: qId},
             {answer: req.body.a8, q_id: qId}
           ]
-          db.addAnswers(newAnswer)
+          let notEmpty = []
+          for (let item of newAnswer) {
+            if (item.answer !== '') {
+              notEmpty.push(item)
+            }
+          }
+          console.log(notEmpty)
+          db.addAnswers(notEmpty)
             .then(() => res.redirect('/play/' + qId))
         })
     })

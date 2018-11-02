@@ -43,19 +43,19 @@ button {
   font-size: 3em;
 }
 
-.create {
+.style {
   text-align: center;
   color: #FF0080;
 
 }
-.create h2{
+.style h2{
   margin-bottom: 50px;
 }
-.create p{
+.style p{
   font-size: 20px;
 }
 
-.create input{
+.style input{
   margin-left: 30px;
   color: black;
 }
