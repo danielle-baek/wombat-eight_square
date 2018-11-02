@@ -1,9 +1,34 @@
-body{
-  margin: 20px;
+body {
+  margin:0px;
+  padding: 0px;
+  background-color: #0F2027;
+  /* background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+  /* background: linear-gradient(to right, #2c3e50, #bdc3c7); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.play{
+header{
+  margin-bottom:30px;
+  padding: 30px;
+  background:#0F2027;
+  color: white;
+  text-align: center;
+}
+
+.play {
+  margin-top: 100px;
   font-size: 2em;
   text-align: center;
-  color: blue;
+  color:#FF0080;
+  text-emphasis: boldd;
+}
+
+.play button {
+  margin-top: 100px;
+  background-color: #4e54c8;
+  color: rgb(238, 88, 163);
+}
+
+.answer {
+  font-size: 3em;
 }

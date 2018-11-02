@@ -25,11 +25,6 @@ function addAnswers (answer, db = connection) {
   return db('answers').insert(answer)
 }
 
-// function getAnswers (q_id, db = connection) {
-//   return db('answers').where('q_id', q_id).select()
-// }
-
-// function getId (db = connection) {
-//   for (x = 0; x < 8; x++)
-
-// }
+function getAnswers (questionID, db = connection) {
+  return db('answers').where('q_id', questionID).select()
+}
