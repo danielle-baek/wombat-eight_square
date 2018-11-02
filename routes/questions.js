@@ -55,7 +55,8 @@ router.get('/edit/:id', (req, res) => {
   const qId = req.params.id
   db.getGame(qId)
     .then(game => {
-      res.render('edit', {game})
+      console.log({game, question: game[0].question})
+      res.render('edit', {game, question: game[0].question})
     })
 })
 
