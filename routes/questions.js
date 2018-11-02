@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/create', (req, res) => {
-  res.render('./partials/create')
+  res.render('create')
 })
 
 router.post('/create', (req, res) => {
@@ -41,7 +41,7 @@ router.post('/create', (req, res) => {
           ]
           console.log(newAnswer)
           db.addAnswers(newAnswer)
-            .then(console.log)
+            .then(() => res.redirect('/play/' + qId))
         })
     })
 })
