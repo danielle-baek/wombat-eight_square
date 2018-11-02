@@ -15,24 +15,35 @@ router.get('/', (req, res) => {
 })
 
 router.get('/create', (req, res) => {
-  res.render('create')
+  res.render('./partials/create')
 })
 
 router.post('/create', (req, res) => {
   const question = req.body.q
-  console.log(question)
-  const newAnswer = [
-    {answer: req.body.a1},
-    {answer: req.body.a2},
-    {answer: req.body.a3},
-    {answer: req.body.a4},
-    {answer: req.body.a5},
-    {answer: req.body.a6},
-    {answer: req.body.a7},
-    {answer: req.body.a8}
-  ]
-  db.addQuestion(question, newAnswer)
-    .then(() => {console.log(newAnswer)})
+  let qId
+  db.addQuestion(question)
+    .then(() => {
+      db.getQuestions()
+        .select()
+        .then((questions) => {
+          qId = questions[questions.length - 1].id
+          console.log(qId)
+
+          const newAnswer = [
+            {answer: req.body.a1, q_id: qId},
+            {answer: req.body.a2, q_id: qId},
+            {answer: req.body.a3, q_id: qId},
+            {answer: req.body.a4, q_id: qId},
+            {answer: req.body.a5, q_id: qId},
+            {answer: req.body.a6, q_id: qId},
+            {answer: req.body.a7, q_id: qId},
+            {answer: req.body.a8, q_id: qId}
+          ]
+          console.log(newAnswer)
+          db.addAnswers(newAnswer)
+            .then(console.log)
+        })
+    })
 })
 
 router.get('/edit/:id', (req, res) => {
