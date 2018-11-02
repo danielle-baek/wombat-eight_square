@@ -23,12 +23,13 @@ header{
   text-emphasis: boldd;
 }
 
-.play button {
+button {
   margin-top: 100px;
   background-color: #4e54c8;
-  color: rgb(238, 88, 163);
+  color: rgb(241, 115, 178);
 }
 
 .answer {
   font-size: 3em;
 }
+

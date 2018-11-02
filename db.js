@@ -6,7 +6,8 @@ module.exports = {
   getQuestion,
   getQuestions,
   addQuestion,
-  addAnswers
+  addAnswers,
+  getAnswers
 }
 
 function getQuestions (db = connection) {
